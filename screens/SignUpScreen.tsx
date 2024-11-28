@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     },
     bottomSection: {
         flex: 1,
-        backgroundColor: "#d17842",
+        backgroundColor: 'rgba(171, 106, 66, 0.49)',
         borderTopLeftRadius: 50,
         borderTopRightRadius: 50,
         paddingHorizontal: width * 0.06,

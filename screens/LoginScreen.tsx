@@ -10,22 +10,23 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { AuthStackParamList } from '../navigation/types'; 
 
 const { width, height } = Dimensions.get("window");
-
 const LoginScreen: React.FC = () => {
+    type LoginScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'Login'>;
     const navigation = useNavigation<NavigationProp<AuthStackParamList>>();
 
     return (
         <View style={styles.container}>
             
             <ImageBackground
-                source={require('../assets/coffee/background.png')} // Corrected the syntax and path
+                source={require('../assets/coffee/background.png')} 
                 style={styles.imageBackground}
                 resizeMode="cover"
             >
-                {/* Welcome Text */}
+                
                 <View style={styles.textContainer}>
                     <Text style={styles.welcomeText}>Welcome To</Text>
                     <Text style={styles.brandText}>CafeCircle</Text>
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
     },
     bottomSection: {
         flex: 1,
-        backgroundColor: "#d17842",
+        backgroundColor: 'rgba(171, 106, 66, 0.49)',
         borderTopLeftRadius: 50,
         borderTopRightRadius: 50,
         paddingHorizontal: width * 0.06,

@@ -1,9 +1,15 @@
 import { NavigatorScreenParams } from '@react-navigation/native';
 
 export type AuthStackParamList = {
-    Login: undefined;
-    Signup: undefined;
-    //SignIn: undefined;
+    
+        Login: undefined;
+        Signup: undefined;
+        Home: undefined;
+        Profile: undefined;
+        SignUp: undefined;
+        Dashboard: undefined;
+        CoffeeDetails: undefined;
+    
 };
 
 declare global {

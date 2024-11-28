@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
 
 
 const data = [
@@ -20,44 +21,52 @@ const coffeeBeans = [
     { id: '4b', name: 'Robusta Coffee Beans', price: '$4.20', image: require('../assets/beans/robusta_coffee_beans_square.png'), description: 'With Steamed Milk' },
 ];
 
-const HomeScreen = () => {
+const HomeScreen: React.FC = () => {
+    const navigation = useNavigation();
+
     const renderCard = (item: any) => (
-        <LinearGradient
-            colors={['#465162', '#262B33']}
-            style={styles.card}
+        <TouchableOpacity
             key={item.id}
+            onPress={() => {
+                if (item.id === '4b') {
+                    navigation.navigate('CoffeeDetails');
+                }
+            }}
         >
-       
-            <Image source={typeof item.image === 'string' ? { uri: item.image } : item.image} style={styles.cardImage} />
-            <Text style={styles.cardTitle}>{item.name}</Text>
-            <Text style={styles.cardDescription}>{item.description}</Text>
-            <Text style={styles.cardPrice}>{item.price}</Text>
-            <TouchableOpacity style={styles.addButton}>
-                <Ionicons name="add" size={16} color="#fff" />
-            </TouchableOpacity>
-        </LinearGradient>
+            <LinearGradient
+                colors={['#465162', '#262B33']}
+                style={styles.card}
+            >
+                <Image source={typeof item.image === 'string' ? { uri: item.image } : item.image} style={styles.cardImage} />
+                <Text style={styles.cardTitle}>{item.name}</Text>
+                <Text style={styles.cardDescription}>{item.description}</Text>
+                <Text style={styles.cardPrice}>{item.price}</Text>
+                <TouchableOpacity style={styles.addButton}>
+                    <Ionicons name="add" size={16} color="#fff" />
+                </TouchableOpacity>
+            </LinearGradient>
+        </TouchableOpacity>
     );
 
     return (
         <View style={styles.container}>
+            <View style={styles.navBar}>
+                <TouchableOpacity onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
+                    <Ionicons name="menu" size={26} color="#fff" />
+                </TouchableOpacity>
+                <Text style={styles.navBarText}>Coffee For You <Ionicons name='cafe-outline' size={18} color="#fff" /></Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                    <Ionicons name="person-circle" size={30} color="#fff" />
+                </TouchableOpacity>
+            </View>
             <ScrollView>
                 <View style={styles.header}>
-                    <TouchableOpacity style={styles.sidebarIcon}>
-                        <Ionicons name="menu" size={24} color="#fff" />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.profileIcon}>
-                        <Ionicons name="person-circle" size={30} color="#fff" />
-                    </TouchableOpacity>
-                    <Text style={styles.headerText} >Find the best
-                        {'\n'}
-                        coffee for you </Text>
+                    <Text style={styles.headerText}>Find the best{'\n'}coffee for you</Text>
                     <View style={styles.searchContainer}>
                         <Ionicons name="search" size={20} color="#ccc" />
                         <TextInput placeholder="Find Your Coffee..." style={styles.searchInput} placeholderTextColor="#ccc" />
                     </View>
                 </View>
-                
-
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.tabContainer}>
                     <Text style={styles.tabText}>All</Text>
                     <Text style={styles.tabText}>Cappuccino</Text>
@@ -68,20 +77,17 @@ const HomeScreen = () => {
                     <Text style={styles.tabText}>Bean</Text>
                 </ScrollView>
 
-               
                 <Text style={styles.subHeader}>Top Coffees</Text>
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
                     {data.map((item) => renderCard(item))}
                 </ScrollView>
 
-               
                 <Text style={styles.subHeader}>Coffee Beans</Text>
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
                     {coffeeBeans.map((item) => renderCard(item))}
                 </ScrollView>
             </ScrollView>
 
-            
             <View style={styles.footer}>
                 <TouchableOpacity style={styles.footerTab}>
                     <Ionicons name="home" size={24} color="#fff" />
@@ -110,47 +116,55 @@ const styles = StyleSheet.create({
         backgroundColor: '#1E1E1E',
         padding: 16,
     },
+    navBar: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: '#333',
+        paddingVertical: 15,
+        paddingHorizontal: 15,
+        marginTop: 30,
+    },
+    navBarText: {
+        color: '#fff',
+        fontSize: 18,
+        fontFamily: 'Caveat-VariableFont_wght',
+    },
     header: {
-        marginBottom:20,
-    
+        marginBottom: 8,
+        padding: 20,
     },
     sidebarIcon: {
         marginRight: 20,
         marginTop: 80,
-
     },
-
     headerText: {
         fontSize: 28,
         color: '#fff',
         fontWeight: 'bold',
-        marginTop: 50,
+        marginTop: 35,
+        marginLeft: 10,
+        fontFamily: 'Caveat-VariableFont_wght',
+        marginBottom: 10,
     },
-
     searchContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#262B33',
-        borderRadius: 8,
-        marginTop: 10,
+        borderRadius: 28,
+        marginTop: 20,
         paddingHorizontal: 10,
         paddingVertical: 8,
     },
-
     searchInput: {
         flex: 1,
         marginLeft: 10,
-        color: '#262B33',
+        color: '#fff',
     },
-
-    profileIcon: {
-        marginLeft: 350,
-        marginTop: -30,
-    },
-
     tabContainer: {
         flexDirection: 'row',
         marginVertical: 17,
+        marginTop: 20,
     },
     tabText: {
         color: '#fff',
@@ -222,7 +236,6 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         padding: 8,
     },
-
 });
 
 export default HomeScreen;
