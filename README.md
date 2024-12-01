@@ -54,8 +54,8 @@ This project is a mobile application built with React Native for managing orders
 
 ## Screenshot
 
-![Screenshot_1733038749](https://github.com/user-attachments/assets/2fe2ad8d-5e46-40f6-a0f6-55f8eb04ff6e)
-![Screenshot_1733038767](https://github.com/user-attachments/assets/14746f93-80cd-4804-ae2b-968f2e69d921)
-![Screenshot_1733038803](https://github.com/user-attachments/assets/a0f09cce-38ca-4cb8-81bc-94085b580147)
-![Screenshot_1733038834](https://github.com/user-attachments/assets/124fbbe9-c047-4a9d-a8f7-f0a1c683a07d)
-![Screenshot_1733038869](https://github.com/user-attachments/assets/992f6bf8-bb5b-447a-9c7a-ed8b3a4c1776)
+<img src="https://github.com/user-attachments/assets/2fe2ad8d-5e46-40f6-a0f6-55f8eb04ff6e" width= 30% height= 30% alt="Image 1">
+<img src="https://github.com/user-attachments/assets/14746f93-80cd-4804-ae2b-968f2e69d921" width= 30% height= 30% alt="Image 1">
+<img src="https://github.com/user-attachments/assets/a0f09cce-38ca-4cb8-81bc-94085b580147" width= 30% height= 30% alt="Image 1">
+<img src="https://github.com/user-attachments/assets/124fbbe9-c047-4a9d-a8f7-f0a1c683a07d" width= 30% height= 30% alt="Image 1">
+<img src="https://github.com/user-attachments/assets/992f6bf8-bb5b-447a-9c7a-ed8b3a4c1776" width= 30% height= 30% alt="Image 1">
