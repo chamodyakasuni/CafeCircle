@@ -51,3 +51,5 @@ This project is a mobile application built with React Native for managing orders
    - View and update orders from the main dashboard.
    - Add new menu items and manage the existing menu from the management section.
    - Update order statuses to notify the system when orders are in preparation, completed, or ready for pickup.
+
+## Screenshot
