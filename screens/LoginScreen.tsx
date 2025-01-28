@@ -11,7 +11,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { AuthStackParamList } from '../navigation/types'; 
+import { AuthStackParamList } from '../navigators/types'; 
 
 const { width, height } = Dimensions.get("window");
 const LoginScreen: React.FC = () => {
